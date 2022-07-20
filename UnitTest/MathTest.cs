@@ -2,21 +2,15 @@ using Math = DataStructure.Math;
 
 namespace UnitTest;
 
-public class MathUtilsTest
+public class MathTest
 {
-    private Math math;
-    
-    public MathUtilsTest()
-    {
-        math = new Math();
-    }
 
     [Theory]
     [InlineData(new int[] { 5, 6, 7 })]
     [InlineData(new int[] { 10, 20, 30 })]
     public void ShouldCalculateSquare(int[] numbers)
     {
-        var square = math.Square(numbers);
+        var square = Math.Square(numbers);
 
         foreach (var item in square)
             Assert.Equal(item.Key * item.Key, item.Value);
@@ -25,12 +19,12 @@ public class MathUtilsTest
     [Fact]
     public void ShouldCalculateFactorial()
     {
-        Assert.Equal((long)120, math.Factorial(5));
+        Assert.Equal((long)120, Math.Factorial(5));
     }
 
     [Fact]
     public void ShouldCalculatePower()
     {
-        Assert.Equal(1024, math.Power(2, 10));
+        Assert.Equal(1024, Math.Power(2, 10));
     }
 }

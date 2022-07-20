@@ -2,14 +2,14 @@ using DataStructure;
 
 namespace UnitTest;
 
-public class StringHelperTest
+public class StringTest
 {
     [Theory]
     [InlineData("TestOne")]
     [InlineData("TestTwo")]
     public void ShouldReverseString(string text)
     {
-        Assert.Equal(new String(text.Reverse().ToArray()), text.CustomReverse());
+        Assert.Equal(new System.String(text.Reverse().ToArray()), text.CustomReverse());
     }
 
     [Theory]

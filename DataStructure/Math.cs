@@ -1,12 +1,12 @@
 ﻿namespace DataStructure;
 
-public class Math
+public static class Math
 {
 
-    public Dictionary<int, int> Square(int[] numbers)
-        => numbers.ToDictionary(x => x, s => s * s);
+    public static Dictionary<int, int> Square(int[] numbers)
+        => numbers.GroupBy(x=>x).ToDictionary(x => x.Key, s => s.Key * s.Key);
 
-    public long Factorial(int number)
+    public static long Factorial(this int number)
     {
         if (number == 0)
             return 1;
@@ -14,7 +14,7 @@ public class Math
             return (number * Factorial(number - 1));
     }
 
-    public long Power(int integer, int power)
+    public static long Power(this int integer, int power)
     {
         if (power != 0)
             return (integer * Power(integer, power - 1));

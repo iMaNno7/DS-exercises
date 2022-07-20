@@ -3,7 +3,7 @@ using System.Text;
 
 namespace DataStructure;
 
-public static class StringHelper
+public static class String
 {
     public static string CustomReverse(this string source)
     {
