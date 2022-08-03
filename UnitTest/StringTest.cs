@@ -1,4 +1,5 @@
 using DataStructure;
+using FluentAssertions;
 
 namespace UnitTest;
 
@@ -12,10 +13,11 @@ public class StringTest
         Assert.Equal(new System.String(text.Reverse().ToArray()), text.CustomReverse());
     }
 
-    [Theory]
-    [InlineData("TesTOne")]
-    public void ShouldDisplayTheCharactersAndFrequencyOfEachCharacterFromInputString(string text)
+    [Fact]
+    public void ShouldDisplayTheCharactersAndFrequencyOfEachCharacterFromInputString()
     {
-        Assert.Contains("T-2", text.Frequency());
+        var inputString = "test";
+        var result = inputString.Frequency();
+        result.Should().Contain(new KeyValuePair<char, int>('t',2));
     }
 }

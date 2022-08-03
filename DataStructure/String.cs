@@ -11,8 +11,21 @@ public static class String
         return string.Join("", source.graphemeEnumerable().Reverse().ToArray());
     }
 
-    public static string[] Frequency(this string source)
+    public static string[] FrequencyLink(this string source)
         => source.GroupBy(s => s).Select(s => $"{s.Key}-{s.Count()}").ToArray();
+
+    public static Dictionary<char,int> Frequency(this string source)
+    {
+        var result = new Dictionary<char, int>();
+        for (int i = 0; i < source.Length; i++)
+        {
+            if (result.ContainsKey(source[i]) is false)            
+            result.Add(source[i], 1);
+            else
+                result[source[i]]+=1;
+        }        
+        return result;
+    }
 
     public static string ReverseString(this string source)
     {
